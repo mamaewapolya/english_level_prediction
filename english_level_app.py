@@ -1,5 +1,3 @@
-!pip install joblib
-
 import streamlit as st
 from PIL import Image
 import pandas as pd
@@ -14,8 +12,7 @@ st.set_page_config(page_title='English Movie Language Level Classifier',
                    initial_sidebar_state='auto')
 
 model_file = './best_model.pkl'
-movies_data = 'https://api.themoviedb.org/3/search/movie'
-movies_df = 'https://github.com/mamaewapolya/english_level_prediction/main/df_movies_raw.csv'
+subs_df = 'https://github.com/mamaewapolya/english_level_prediction/main/df_movies_raw.csv'
 
 # loading the model
 try:
@@ -41,7 +38,7 @@ movie_name = st.text_input('Enter the name of a movie')
 
 if movie_name:
     # checking if we have a movie in a list
-    movie_info = movies_df[movies_df['Movie'] == movie_name].iloc[0]
+    movie_info = subs_df[subs_df['Movie'] == movie_name].iloc[0]
     if not movie_info:
         st.write('Sorry, we do not have subtitles for this movie. Please try another one.')
     else:
