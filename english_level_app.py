@@ -11,14 +11,14 @@ st.set_page_config(page_title='English Movie Language Level Classifier',
                    page_icon=':clapper:', layout='wide',
                    initial_sidebar_state='auto')
 
-MODEL_FILE = './best_model.pkl'.
-MOVIES_DATA_URL = 'https://api.themoviedb.org/3/search/movie'
+model_file = './best_model.pkl'
+movies_data = 'https://api.themoviedb.org/3/search/movie'
 movies_df = 'https://github.com/mamaewapolya/english_level_prediction/main/df_movies_raw.csv'
 
 # loading the model
 try:
-    with open(MODEL_FILE, 'rb') as f:
-        model = joblib.load(MODEL_FILE)
+    with open(model_file, 'rb') as f:
+        model = joblib.load(model_file)
 except:
     st.write('Error loading the model file.')
 
