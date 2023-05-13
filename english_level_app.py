@@ -2,10 +2,7 @@ import streamlit as st
 from PIL import Image
 import pandas as pd
 import joblib
-import pickle
 import requests
-from io import StringIO
-from typing import List, Dict
 from io import BytesIO
 
 # header and cover of the app
@@ -14,7 +11,7 @@ st.set_page_config(page_title='English Movie Language Level Classifier',
                    page_icon=':clapper:', layout='wide',
                    initial_sidebar_state='auto')
 
-MODEL_FILE = 'https://github.com/mamaewapolya/english_level_prediction/main/best_model.pkl'
+MODEL_FILE = ./best_model.pkl'.
 MOVIES_DATA_URL = 'https://api.themoviedb.org/3/search/movie'
 movies_df = 'https://github.com/mamaewapolya/english_level_prediction/main/df_movies_raw.csv'
 
