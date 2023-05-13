@@ -1,15 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[2]:
-
-
-get_ipython().system('pip install streamlit')
-
-
-# In[3]:
-
-
 import streamlit as st
 from PIL import Image
 import pandas as pd
@@ -20,18 +8,12 @@ from io import StringIO
 from typing import List, Dict
 from io import BytesIO
 
-
-# In[5]:
-
-
 # header and cover of the app
 
 st.set_page_config(page_title='English Movie Language Level Classifier',
                    page_icon=':clapper:', layout='wide',
                    initial_sidebar_state='auto')
 
-
-#MODEL_FILE = 'C:/Users/MamaevaPolina/OneDrive - Rhenus/Desktop/Мастерская_2/best_model.pkl'
 MODEL_FILE = 'https://github.com/mamaewapolya/english_level_prediction/main/best_model.pkl'
 MOVIES_DATA_URL = 'https://api.themoviedb.org/3/search/movie'
 movies_df = 'https://github.com/mamaewapolya/english_level_prediction/main/df_movies_raw.csv'
@@ -49,14 +31,11 @@ response = requests.get('https://github.com/mamaewapolya/english_level_predictio
 cover_image = Image.open(BytesIO(response.content))
 st.image(cover_image, use_column_width=True)
 
-
 # setting header
 st.title('English Movie Language Level Classifier')
 
-
 # setting subheader
 st.write('This application helps English learners to determine the level of a movie difficulty by subtitles. Just enter the name of a movie and embrace the magic of AI.')
-
 
 # movie input box
 movie_name = st.text_input('Enter the name of a movie')
@@ -88,10 +67,3 @@ if movie_name:
         st.subheader(f'{level}',  style=f'color:{color};font-size:30px')
 else:
     st.write('Please enter a movie name.')
-
-
-# In[ ]:
-
-
-
-
